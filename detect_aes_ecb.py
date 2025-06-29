@@ -13,11 +13,7 @@ def get_score(s):
     # Get the unique chunks by converting the list into a set
     unique_chunks = set(chunks)
     
-    # Return the number of unique chunks
-    if len(unique_chunks)!=0:
-        return len(chunks)/len(unique_chunks)
-    else:
-        return 1e18
+    return len(unique_chunks)
 
 def get_unique_chunks(s):
     chunks = [s[i:i+16] for i in range(0, len(s), 16)]
@@ -44,10 +40,10 @@ if (__name__ == "__main__"):
                 process(s)
 
 
-        results.sort(reverse = True)
+        results.sort()
 
         for result in results[0:10]:
             # print(get_unique_chunks(result[1]))
-            print(result)
+            print(result,len(result[1])/16)
     
 
